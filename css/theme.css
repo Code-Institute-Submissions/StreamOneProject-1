@@ -1,0 +1,35 @@
+html {
+	font-family: "Josefin Sans", sans-serif;
+}
+
+/* Main Menu */
+.navbar { 
+	border: none;
+}
+
+.navbar-default {
+	background-color: transparent;
+}
+
+.navbar-brand { 
+	font-weight: 700;
+	font-size: 20px;
+}
+
+/* Footer */
+footer {
+	background-color: #0A203A;
+	color: #6280A5;
+}
+
+.footer-content {
+	min-height: 200px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.copyright {
+	background-color: #000205;
+	padding: 20px 0;
+	color: #C7DDF7;
+}
