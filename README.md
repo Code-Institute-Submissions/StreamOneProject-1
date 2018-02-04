@@ -32,4 +32,4 @@ The website will contain the following pages:
 
 ## Deployment
 
-The finished project will be deployed on the clients website [http://www.cedneybuilders.co.uk](http://www.cedneybuilders.co.uk) using FTP.
+The finished project will be deployed on the clients website [http://www.cedneybuilders.com](http://www.cedneybuilders.com) using FTP.
