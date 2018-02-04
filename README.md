@@ -23,7 +23,10 @@ The website will contain the following pages:
 
 * HTML5
 * CSS3
-	* reset.css from [https://meyerweb.com/eric/tools/css/reset/](Meyerweb.com)
+	* reset.css from [Meyerweb.com](https://meyerweb.com/eric/tools/css/reset/)
+* Google Fonts
+	* Open Sans - [https://fonts.google.com/specimen/Open+Sans](https://fonts.google.com/specimen/Open+Sans)
+	* Righteous - [https://fonts.google.com/specimen/Righteous](https://fonts.google.com/specimen/Righteous)
 * jQuery (from Bootstrap)
 * AngularJS
 * Bootstrap - The website will be constructed using HTML5 and The Bootstrap Framework to provide a responsive layout. A custom theme will be written in CSS3 to give the site its colour scheme and look and feel. The carousel from Bootstrap will be used on the Portfolio page to showcase images, custom CSS will be added to change the look.
