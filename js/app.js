@@ -11,6 +11,26 @@ angular.module('CEdneyBuilders').config(function($locationProvider, $routeProvid
 		templateUrl: 'templates/home.html',
 		controller: 'HomeController'
 	})
+	.when('/about/', {
+		templateUrl: 'templates/about.html',
+		controller: 'AboutController'
+	})
+	.when('/portfolio/', {
+		templateUrl: 'templates/portfolio.html',
+		controller: 'PortfolioController'
+	})
+	.when('/services/', {
+		templateUrl: 'templates/services.html',
+		controller: 'ServicesController'
+	})
+	.when('/contact/', {
+		templateUrl: 'templates/contact.html',
+		controller: 'ContactController'
+	})
+	.when('/quote/', {
+		templateUrl: 'templates/quote.html',
+		controller: 'QuoteController'
+	})
 
 	// otherwise, redirect to the home page.
 	.otherwise({ redirectTo: '/'});
