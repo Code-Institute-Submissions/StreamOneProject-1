@@ -11,22 +11,32 @@ angular.module('CEdneyBuilders').config(function($locationProvider, $routeProvid
 		templateUrl: 'templates/home.html',
 		controller: 'HomeController'
 	})
+	
+	// about us page route.
 	.when('/about/', {
 		templateUrl: 'templates/about.html',
 		controller: 'AboutController'
 	})
+
+	// portfolio page route.
 	.when('/portfolio/', {
 		templateUrl: 'templates/portfolio.html',
 		controller: 'PortfolioController'
 	})
+
+	// services page route.
 	.when('/services/', {
 		templateUrl: 'templates/services.html',
 		controller: 'ServicesController'
 	})
+
+	// contact us page route.
 	.when('/contact/', {
 		templateUrl: 'templates/contact.html',
 		controller: 'ContactController'
 	})
+
+	// quote calculator route.
 	.when('/quote/', {
 		templateUrl: 'templates/quote.html',
 		controller: 'QuoteController'
