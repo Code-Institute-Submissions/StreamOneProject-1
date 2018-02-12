@@ -1,13 +1,22 @@
-$(document).ready(function(){
-      $('body').append('<div id="toTop" class="btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span></div>');
-    	$(window).scroll(function () {
-			if ($(this).scrollTop() != 0) {
-				$('#toTop').fadeIn();
-			} else {
-				$('#toTop').fadeOut();
-			}
-		}); 
+$(document).ready(function() {
+	// append toTop div to the bottom of the body tag.
+    $('body').append('<div id="toTop" class="btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span></div>');
+	
+	// function to show the button based on page position.
+	$(window).scroll(function () {
+		// if not at the top of the page
+		if ($(this).scrollTop() != 0) {
+			// fade the button in.
+			$('#toTop').fadeIn();
+		} else {
+			// fade the button out.
+			$('#toTop').fadeOut();
+		}
+	}); 
+    
+    // click function for toTop button.
     $('#toTop').click(function(){
+        // smoothly scroll to the top of the page.
         $("html, body").animate({ scrollTop: 0 }, 600);
         return false;
     });
