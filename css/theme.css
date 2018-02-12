@@ -1,15 +1,28 @@
 /*
 Global CSS Rules affecting the entire site.
 */
-html {
+html, body {
 	font-family: "Open Sans", sans-serif;
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: 400;
 	color: #545454;
+	text-align: justify;
 }
 a { 
 	transition: all 0.3s ease-in-out;
 }
 h1, h2, h3, h4, h5, h6 {
 	font-family: Righteous;
+	margin-top: 0px;
+}
+h1 {
+	font-size: 60px;
+	margin: 30px 0 40px;
+}
+h2 {
+	font-size: 50px;
+	margin: 30px 0 40px;
 }
 
 /* Navbar */
@@ -84,11 +97,24 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 25px;
 }
 
+/* Texture Backgrounds */
+.brickwall-blue {
+	background-image: url(/images/brickwall-blue.png);
+	background-repeat: repeat;
+}
+.brickwall-green {
+	background-image: url(/images/brickwall-green.png);
+	background-repeat: repeat;
+}
+.brickwall-orange {
+	background-image: url(/images/brickwall-orange.png);
+	background-repeat: repeat;
+}
+
 /* Home Page */
 .home-bkg {
 	background-image: url(/images/home/welcome-to-c-edney-builders.jpg);
 	background-attachment: fixed;
-	background-position: bottom center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	text-align: center;
@@ -97,18 +123,41 @@ h1, h2, h3, h4, h5, h6 {
 	color: #fff;
 	text-shadow: 5px 5px 5px #000;
 }
-.panel-contact, .panel-portfoilo, .panel-quote {
-	padding-top: 20px;
-	padding-bottom: 20px;
+.panel-contact, .panel-portfolio, .panel-quote {
+	padding: 0;
+	overflow: hidden;
 }
 .panel-contact {
 	background-color: #065584;
 }
-.panel-portfoilo {
+.panel-contact h2 {
+	background-color: #04456C;
+}
+.panel-portfolio {
 	background-color: #009147;
+}
+.panel-portfolio h2 {
+	background-color: #00763A;
 }
 .panel-quote {
 	background-color: #CF7200;
+}
+.panel-quote h2 {
+	background-color: #A95D00;
+}
+.panel-title-shadow {
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+	padding: 20px;
+	color: #fff;
+	font-size: 20px;
+	margin-bottom: 20px;
+	margin-top: 0px;
+}
+
+/* Spacers */
+.spacer-50px {
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 /* Footer */
@@ -143,6 +192,8 @@ Mobile Device CSS Rules
 	/* Home Page */
 	.home-bkg {
 		min-height: 350px;
+		background-size: cover;
+		background-attachment: scroll;
 	}
 	.home-bkg h1 {
 		font-size: 45px;
@@ -150,6 +201,14 @@ Mobile Device CSS Rules
 	}
 	.home-bkg h2 {
 		font-size: 35px;
+	}
+	.panel-contact h2, .panel-portfolio h2, .panel-quote h2 {
+		display: none;
+		visibility: hidden;
+	}
+	.panel-contact p, .panel-portfolio p, .panel-quote p {
+		padding: 20px;
+		color: #fff;
 	}
 }
 
@@ -180,7 +239,8 @@ Desktop CSS Rules
 	.home-bkg h2 {
 		font-size: 45px;
 	}
-	.panel-contact, .panel-portfoilo, .panel-quote {
-		min-height: 300px;
+	.panel-contact p, .panel-portfolio p, .panel-quote p {
+		padding: 0 20px 20px;
+		color: #fff;
 	}
 }

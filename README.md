@@ -23,7 +23,6 @@ The website will contain the following pages:
 
 * HTML5
 * CSS3
-	* reset.css from [Meyerweb.com](https://meyerweb.com/eric/tools/css/reset/)
 * Google Fonts
 	* Open Sans - [https://fonts.google.com/specimen/Open+Sans](https://fonts.google.com/specimen/Open+Sans)
 	* Righteous - [https://fonts.google.com/specimen/Righteous](https://fonts.google.com/specimen/Righteous)
