@@ -1,0 +1,84 @@
+<!-- Begin Contact Map -->
+<section>
+	<div class="container-fluid map-container">
+		<div>
+			<iframe src="https://www.google.com/maps/embed/v1/place?q=Gosport&zoom=17&key=AIzaSyAvhxQHYINGDNPCZJMEIDd1OMJb8Ll-a-U"></iframe>
+		</div>
+	</div>
+</section>
+<!-- End Contact Map -->
+
+<!-- Contact Form -->
+<section>
+	<div class="container spacer-50px">
+		<form name="contactForm" ng-submit="submitForm(contactForm.$valid)" novalidate>
+			<div class="row">
+				<!-- Your Name Field -->
+				<div class="col-xs-12 col-md-4">
+					<div class="form-group" ng-class="{'has-error has-feedback' : contactForm.yourName.$invalid || contactForm.yourName.$pristine, 'has-success has-feedback' : contactForm.yourName.$valid }">
+						<label for="yourName" class="control-label">Your Name</label>
+						<div class="input-group">
+							<div class="input-group-addon">
+								<span class="glyphicon glyphicon-user"></span>
+							</div>
+							<input name="yourName" type="text" class="form-control" ng-model="yourName" placeholder="Your Name" required>
+							<span class="glyphicon form-control-feedback" ng-class="{'glyphicon-remove' : contactForm.yourName.$invalid || contactForm.yourName.$pristine, 'glyphicon-ok' : contactForm.yourName.$valid }"></span>
+						</div>
+					</div>
+				</div>
+
+				<!-- E-Mail Address Field -->
+				<div class="col-xs-12 col-md-4">
+					<div class="form-group" ng-class="{'has-error has-feedback' : contactForm.emailAddress.$invalid || contactForm.emailAddress.$pristine, 'has-success has-feedback' : contactForm.emailAddress.$valid }">
+						<label for="emailAddress" class="control-label">E-Mail Address</label>
+						<div class="input-group">
+							<div class="input-group-addon">
+								<span class="glyphicon glyphicon-envelope"></span>
+							</div>
+							<input type="email" name="emailAddress" class="form-control" ng-model="emailAddress" placeholder="Your E-Mail Address" required>
+							<span class="glyphicon form-control-feedback" ng-class="{'glyphicon-remove' : contactForm.emailAddress.$invalid || contactForm.emailAddress.$pristine, 'glyphicon-ok' : contactForm.emailAddress.$valid }"></span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Telephone Number Field -->
+				<div class="col-xs-12 col-md-4">
+					<div class="form-group" ng-class="{'has-error has-feedback' : contactForm.yourTelephone.$invalid || contactForm.yourTelephone.$pristine, 'has-success has-feedback' : contactForm.yourTelephone.$valid }">
+						<label for="yourTelephone" class="control-label">Telephone Number</label>
+						<div class="input-group">
+							<div class="input-group-addon">
+								<span class="glyphicon glyphicon-earphone"></span>
+							</div>
+							<input name="yourTelephone" type="text" class="form-control" ng-model="yourTelephone" placeholder="Your Telephone Number" ng-minlength="10" required>
+							<span class="glyphicon form-control-feedback" ng-class="{'glyphicon-remove' : contactForm.yourTelephone.$invalid || contactForm.yourTelephone.$pristine, 'glyphicon-ok' : contactForm.yourTelephone.$valid }"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Message Field -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="yourMessage" class="control-label">Your Message</label>
+						<div class="input-group">
+							<div class="input-group-addon">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</div>
+							<textarea name="yourMessage" rows="10" class="form-control" ng-model="yourMessage" placeholder="Your Message"></textarea>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			
+			<!-- Submit Button -->
+			<div class="row">
+				<div class="col-md-12">
+					<button type="submit" class="btn btn-primary" ng-disabled="contactForm.$invalid">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
+<!-- End Contact Form -->

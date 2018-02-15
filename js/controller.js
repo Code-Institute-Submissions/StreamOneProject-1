@@ -22,7 +22,12 @@ angular.module('RouteControllers', [])
 
 	// contact us controller.
 	.controller('ContactController', function($scope) {
-
+		$scope.submitForm = function(isValid) {
+			// check to make sure form is valid
+			if (isValid) {
+				alert('Do something here');
+			}
+		};
 	})
 
 	// quote calculator controller.
