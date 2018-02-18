@@ -1,5 +1,5 @@
 // begin the angular app CEdneyBuilders.
-angular.module('CEdneyBuilders', ['ngRoute', 'RouteControllers']);
+angular.module('CEdneyBuilders', ['ngRoute', 'RouteControllers', 'ngMessages']);
 
 // create configurations for the app.
 angular.module('CEdneyBuilders').config(function($locationProvider, $routeProvider) {
@@ -11,7 +11,7 @@ angular.module('CEdneyBuilders').config(function($locationProvider, $routeProvid
 		templateUrl: 'templates/home.html',
 		controller: 'HomeController'
 	})
-	
+
 	// about us page route.
 	.when('/about/', {
 		templateUrl: 'templates/about.html',

@@ -24,6 +24,9 @@
 							<input name="yourName" type="text" class="form-control" ng-model="yourName" placeholder="Your Name" required>
 							<span class="glyphicon form-control-feedback" ng-class="{'glyphicon-remove' : contactForm.yourName.$invalid || contactForm.yourName.$pristine, 'glyphicon-ok' : contactForm.yourName.$valid }"></span>
 						</div>
+						<div class="help-block" ng-messages="contactForm.yourName.$error">
+							<div ng-messages-include="templates/error-messages.html"></div>
+						</div>
 					</div>
 				</div>
 
@@ -35,8 +38,11 @@
 							<div class="input-group-addon">
 								<span class="glyphicon glyphicon-envelope"></span>
 							</div>
-							<input type="email" name="emailAddress" class="form-control" ng-model="emailAddress" placeholder="Your E-Mail Address" required>
+							<input type="email" name="emailAddress" class="form-control" ng-model="emailAddress" ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" placeholder="Your E-Mail Address" required>
 							<span class="glyphicon form-control-feedback" ng-class="{'glyphicon-remove' : contactForm.emailAddress.$invalid || contactForm.emailAddress.$pristine, 'glyphicon-ok' : contactForm.emailAddress.$valid }"></span>
+						</div>
+						<div class="help-block" ng-messages="contactForm.emailAddress.$error">
+							<div ng-messages-include="templates/error-messages.html"></div>
 						</div>
 					</div>
 				</div>
@@ -49,8 +55,12 @@
 							<div class="input-group-addon">
 								<span class="glyphicon glyphicon-earphone"></span>
 							</div>
-							<input name="yourTelephone" type="text" class="form-control" ng-model="yourTelephone" placeholder="Your Telephone Number" ng-minlength="10" required>
+							<input name="yourTelephone" type="text" class="form-control" ng-model="yourTelephone" ng-pattern="/^[0-9]*$/" placeholder="Your Telephone Number" ng-minlength="10" required>
 							<span class="glyphicon form-control-feedback" ng-class="{'glyphicon-remove' : contactForm.yourTelephone.$invalid || contactForm.yourTelephone.$pristine, 'glyphicon-ok' : contactForm.yourTelephone.$valid }"></span>
+						</div>
+						<div class="help-block" ng-messages="contactForm.yourTelephone.$error">
+							<p ng-message="pattern">Please only enter numbers</p>
+							<div ng-messages-include="templates/error-messages.html"></div>
 						</div>
 					</div>
 				</div>
@@ -59,15 +69,22 @@
 			<!-- Message Field -->
 			<div class="row">
 				<div class="col-md-12">
-					<div class="form-group">
+					<div class="form-group" ng-class="{'has-error has-feedback' : contactForm.yourMessage.$invalid || contactForm.yourMessage.$pristine, 'has-success has-feedback' : contactForm.yourMessage.$valid}">
 						<label for="yourMessage" class="control-label">Your Message</label>
 						<div class="input-group">
 							<div class="input-group-addon">
 								<span class="glyphicon glyphicon-pencil"></span>
 							</div>
-							<textarea name="yourMessage" rows="10" class="form-control" ng-model="yourMessage" placeholder="Your Message"></textarea>
+							<textarea id="your-message" name="yourMessage" rows="10" class="form-control" ng-model="yourMessage" 
+								placeholder="Your Message" ng-minlength="50" ng-maxlength="500" required></textarea>
+							<span class="glyphicon form-control-feedback" ng-class="{'glyphicon-remove' : contactForm.yourMessage.$invalid || contactForm.yourMessage.$pristine, 'glyphicon-ok' : contactForm.yourMessage.$valid }"></span>
 						</div>
-						
+						<div id="charNum" class="char-number">0/500</div>
+						<div class="help-block" ng-messages="contactForm.yourMessage.$error">
+							<p ng-message="minlength">Your Message needs to be between 50 and 500 characters</p>
+							<p ng-message="maxlength">Your Message needs to be between 50 and 500 characters</p>
+							<div ng-messages-include="templates/error-messages.html"></div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -82,3 +99,22 @@
 	</div>
 </section>
 <!-- End Contact Form -->
+
+<div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="contact-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="contact-modal-header">Thank You for Contacting Us</h4>
+            </div>
+            <div class="modal-body">
+                <div id="thankYouMessage">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

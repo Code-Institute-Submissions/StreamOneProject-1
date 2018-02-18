@@ -127,6 +127,9 @@ p {
 	font-size: 25px;
 }
 
+/* Character Counter */
+.char-number { font-size: 0.6rem; text-align: right; }
+
 /* Texture Backgrounds */
 .brickwall-blue {
 	background-image: url(/images/brickwall-blue.png);

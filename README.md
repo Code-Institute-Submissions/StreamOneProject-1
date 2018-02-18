@@ -28,6 +28,8 @@ The website will contain the following pages:
 	* Righteous - [https://fonts.google.com/specimen/Righteous](https://fonts.google.com/specimen/Righteous)
 * jQuery (from Bootstrap)
 * AngularJS
+	* Angular Route
+	* Angular Messages
 * Bootstrap - The website will be constructed using HTML5 and The Bootstrap Framework to provide a responsive layout. A custom theme will be written in CSS3 to give the site its colour scheme and look and feel. The carousel from Bootstrap will be used on the Portfolio page to showcase images, custom CSS will be added to change the look.
 * AngularJS will be used to create the quote calculator - the quote will update automatically as the user changes values on the form.
 * GoogleMaps will be used on the contact us page to show the office location
