@@ -187,6 +187,25 @@ p {
 	margin-top: 0px;
 }
 
+/* Carousel */
+.carousel-indicators li {
+	border-radius: 0;
+}
+.carousel-control.right, .carousel-control.left {
+	background-image: none;
+	filter: none;
+}
+.carousel-caption {
+	left: initial;
+	right: initial;
+	top: 0;
+	bottom: initial;
+	width: 100%;
+	background-color: rgba(15, 15, 15, 0.8);
+	text-align: initial;
+	padding: 20px;
+}
+
 /* Spacers */
 .spacer-50px {
 	margin-top: 50px;
@@ -197,7 +216,9 @@ p {
 footer {
 	background-color: #f6f6f6;
 	color: #777;
+	font-size: 14px;
 }
+footer a { color: #777; }
 .footer-content {
 	min-height: 200px;
 	padding-top: 90px;
@@ -220,6 +241,11 @@ Mobile Device CSS Rules
 		font-size: 20px;
 		font-family: Righteous;
 		color: #065584;
+	}
+
+	/* Footer */
+	.footer-column {
+		margin-bottom: 20px;
 	}
 	
 	/* Home Page */
