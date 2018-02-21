@@ -1,28 +1,36 @@
 angular.module('RouteControllers', [])
 	
 	// home page controller.
-	.controller('HomeController', function($scope) {
-
+	.controller('HomeController', function($scope, $rootScope) {
+		// Set Page Title.
+		$rootScope.pageTitle = "Welcome to C Edney Builders";
 	})
 
 	// about us controller.
-	.controller('AboutController', function($scope) {
-
+	.controller('AboutController', function($scope, $rootScope) {
+		// Set Page Title.
+		$rootScope.pageTitle = "About Us | Meet the Team | C Edney Builders";
 	})
 
 	// portfolio controller.
-	.controller('PortfolioController', function($scope) {
-
+	.controller('PortfolioController', function($scope, $rootScope) {
+		// Set Page Title.
+		$rootScope.pageTitle = "Portfolio | See Some of our Work | C Edney Builders";
 	})
 
 	// services controller.
-	.controller('ServicesController', function($scope) {
-
+	.controller('ServicesController', function($scope, $rootScope) {
+		// Set Page Title.
+		$rootScope.pageTitle = "Our Services | What we Offer | C Edney Builders";
 	})
 
 	// contact us controller.
-	.controller('ContactController', function($scope) {
-		$scope.emailRegex = '/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/';
+	.controller('ContactController', function($scope, $rootScope) {
+		// Set Page Title.
+		$rootScope.pageTitle = "Contact Us | Find Us | C Edney Builders";
+
+		// regular expression to check e-mail field against.
+		$scope.emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 	    // count the characters in the message field.
 		$('#your-message').keyup(function () {
@@ -53,7 +61,7 @@ angular.module('RouteControllers', [])
 		$scope.submitForm = function(isValid) {
 			// check to make sure form is valid
 			if (isValid) {
-				// message to show in thankyou box.
+				// message to show in thank you box.
 				strMessage = "<p>Thank you for getting in contact with us, below is a copy of your message<br />" +
 							 "<strong>Your Name:</strong> " + $scope.yourName + "<br />" +
 							 "<strong>Your E-Mail:</strong> " + $scope.emailAddress + "<br />" +
@@ -74,6 +82,7 @@ angular.module('RouteControllers', [])
 	})
 
 	// quote calculator controller.
-	.controller('QuoteController', function($scope) {
-
+	.controller('QuoteController', function($scope, $rootScope, APIService) {
+		// set page title.
+		$rootScope.pageTitle = "Quote Calculator | Get a Free, No Obligation Quote | C Edney Builders";
 	});
