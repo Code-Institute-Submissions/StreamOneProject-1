@@ -23,16 +23,28 @@ The website will contain the following pages:
 
 * HTML5
 * CSS3
+	* Bootstrap 3.3.7
 * Google Fonts
 	* Open Sans - [https://fonts.google.com/specimen/Open+Sans](https://fonts.google.com/specimen/Open+Sans)
 	* Righteous - [https://fonts.google.com/specimen/Righteous](https://fonts.google.com/specimen/Righteous)
-* jQuery (from Bootstrap)
-* AngularJS
-	* Angular Route
-	* Angular Messages
-* Bootstrap - The website will be constructed using HTML5 and The Bootstrap Framework to provide a responsive layout. A custom theme will be written in CSS3 to give the site its colour scheme and look and feel. The carousel from Bootstrap will be used on the Portfolio page to showcase images, custom CSS will be added to change the look.
-* AngularJS will be used to create the quote calculator - the quote will update automatically as the user changes values on the form.
-* GoogleMaps will be used on the contact us page to show the office location
+* jQuery 3.3.1
+* AngularJS 1.6.5
+	* Angular Route 1.6.8
+	* Angular Messages 1.6.9
+* Bootstrap
+	* The website will be constructed using HTML5 and the Bootstrap Framework to provide a responsive layout. 
+	* A custom theme will be written in CSS3 to give the site its colour scheme and look and feel. 
+	* The carousel from Bootstrap will be used on the Portfolio page to showcase images, custom CSS will be added to change the look.
+	* The Quote Calculator is made using Bootstrap collapse panels in an accordion style.
+* AngularJS is used to create the website:
+	* Routes is used to create a single page website.
+	* Form validation is handled via Angular and Messages is used to display custom error messages under form fields.
+	* The Quote Calculator makes use of Angular form validation, an API call to [Ideal Postcodes](http:/www.ideal-postcodes.co.uk) to find address details, Angular Switch statements to control what fields are shown based on user selections.
+* GoogleMaps will be used on the contact us page to show the office location.
+
+## Testing
+
+The website was tested on various devices (desktop, iPhone and iPad) to check layout and style is correct on all resolutions. Responsive Design Mode in the browser Safari was also used to check the responsive layout.
 
 ## Deployment
 
