@@ -1,0 +1,360 @@
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Work Quote Calculator</h1>
+			</div>
+		</div>
+		<div class="row">
+			<!-- Quote Calculator Begins -->
+			<div class="col-xs-12 col-md-8">
+				<form name="quoteCalculator" ng-submit="submitForm(quoteCalculator.$valid)" novalidate>
+					<div id="accordion" class="panel-group" aria-multiselectable="true">
+						<!-- Step One Begins -->
+						<div class="panel panel-default">
+							<!-- Heading Begins -->
+							<div id="stepOne" class="panel-heading" role="tab">
+								<h4 class="panel-title">
+									Step 1 - Contact Details
+								</h4>
+							</div>
+							<!-- Heading Ends -->
+							<!-- Step One Content Begins -->
+							<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="stepOne">
+								<div class="panel-body">
+									<fieldset ng-form="frmStepOne">
+										<!-- Title, First Name and Surname -->
+										<div class="row">
+											<div class="col-xs-12 col-sm-2 col-md-2">
+												<div class="form-group" ng-class="{ 'has-error' : frmStepOne.title.$invalid || frmStepOne.title.$pristine }">
+													<label for="title" class="control-label">Title</label>
+													<select id="title" name="title" id="title" ng-model="quote.title" class="form-control" required>
+														<option value="">Select...</option>
+														<option value="Mr.">Mr.</option>
+														<option value="Mrs.">Mrs.</option>
+														<option value="Ms.">Ms.</option>
+														<option value="Miss.">Miss.</option>
+														<option value="Prof.">Prof.</option>
+														<option value="Dr.">Dr.</option>
+													</select>
+													<div class="help-block" ng-messages="frmStepOne.title.$error">
+														<div ng-message="required">Required</div>
+														<div ng-messages-include="templates/error-messages.html"></div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-5 col-md-5">
+												<div class="form-group" ng-class="{'has-error' : frmStepOne.firstName.$invalid || frmStepOne.firstName.$pristine}">
+													<label for="firstName" class="control-label">First Name</label>
+													<input id="firstName" name="firstName" ng-model="quote.firstName" type="text" placeholder="First Name" class="form-control" required>
+													<div class="help-block" ng-messages="frmStepOne.firstName.$error">
+														<div ng-messages-include="templates/error-messages.html"></div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-5 col-md-5">
+												<div class="form-group" ng-class="{'has-error' : frmStepOne.surname.$invalid || frmStepOne.surname.$pristine}">
+													<label for="surname" class="control-label">Surname</label>
+													<input id="surname" name="surname" ng-model="quote.surname" placeholder="Surname" type="text" class="form-control" required>
+													<div class="help-block" ng-messages="frmStepOne.surname.$error">
+														<div ng-messages-include="templates/error-messages.html"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Telephone and E-Mail -->
+										<div class="row">
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<div class="form-group" ng-class="{'has-error' : frmStepOne.telephoneNumber.$invalid || frmStepOne.telephoneNumber.$pristine}">
+													<label for="telephoneNumber" class="control-label">Telephone Number</label>
+													<input id="telephoneNumber" name="telephoneNumber" type="text" class="form-control" ng-model="quote.telephoneNumber" placeholder="Telephone Number" ng-pattern="numberReg" required>
+													<div class="help-block" ng-messages="frmStepOne.telephoneNumber.$error">
+														<div ng-message="pattern">Please enter numbers only</div>
+														<div ng-messages-include="templates/error-messages.html"></div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<div class="form-group" ng-class="{'has-error' : frmStepOne.emailAddress.$invalid || frmStepOne.emailAddress.$pristine}">
+													<label for="emailAddress" class="control-label">E-Mail Address</label>
+													<input id="emailAddress" name="emailAddress" type="email" class="form-control" ng-model="quote.emailAddress" placeholder="E-Mail Address" ng-pattern="emailReg" required>
+													<div class="help-block" ng-messages="frmStepOne.emailAddress.$error">
+														<div ng-messages-include="templates/error-messages.html"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Postcode and Address -->
+										<div class="row">
+											<div class="col-xs-12 col-sm-4 col-md-4">
+												<div class="form-group" ng-class="{'has-error' : frmStepOne.postCode.$invalid || frmStepOne.postCode.$pristine}">
+													<label for="postCode" class="control-label">Postcode</label>
+													<div class="input-group">
+														<input id="postCode" name="postCode" ng-model="quote.postCode" placeholder="Postcode" type="text" class="form-control" ng-pattern="postcodeReg" required>
+														<span class="input-group-btn">
+															<button id="lookupPostcode" class="btn" ng-class="{'btn-danger' : frmStepOne.postCode.$invalid || frmStepOne.postCode.$pristine, 'btn-primary' : frmStepOne.postCode.$valid}" type="button" ng-click="findPostCode()" ng-disabled="frmStepOne.postCode.$invalid">Lookup</button>
+														</span>
+													</div>
+													<div class="help-block" ng-messages="frmStepOne.postCode.$error">
+														<div ng-message="pattern">Please enter a valid Post Code</div>
+														<div ng-messages-include="templates/error-messages.html"></div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-8 col-md-8">
+												<div ng-switch on="isPostcodeWorking">
+													<div ng-switch-when="true">
+														<div id="addressSelect" class="form-group" ng-class="{'has-error' : frmStepOne.yourAddress.$invalid || frmStepOne.yourAddress.$pristine}">
+															<label for="yourAddress" class="control-label">Select Your Address</label>
+															<select id="yourAddress" name="yourAddress" ng-model="quote.yourAddress" class="form-control" required>
+																<option value="">Please Select...</option>
+																<option ng-repeat="address in addresses.result" value="{{ address.line_1 }}, {{ address.line_2 }}, {{ address.line_3 }}, {{ address.post_town }}, {{ address.county }}, {{ address.postcode }}">{{ address.line_1 }}, {{ address.line_2 }}, {{ address.line_3 }}, {{ address.post_town }}, {{ address.county }}, {{ address.postcode }}</option>
+															</select>
+															<div class="help-block" ng-messages="frmStepOne.yourAddress.$error">
+																<div ng-messages-include="templates/error-messages.html"></div>
+															</div>
+														</div>
+													</div>
+													<div ng-switch-default>
+														<div class="form-group" ng-class="{'has-error' : frmStepOne.freeAddress.$invalid || frmStepOne.freeAddress.$pristine}">
+															<label for="freeAddress" class="control-label">Address (Please enter)</label>
+															<input id="freeAddress" name="freeAddress" ng-model="quote.freeAddress" type="text" placeholder="Please enter your address" class="form-control" required>
+															<div class="help-block" ng-messages="frmStepOne.freeAddress.$error">
+																<div ng-messages-include="templates/error-messages.html"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Navigation Buttons -->
+										<button type="button" class="btn btn-primary pull-right" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" data-parent="#accordion" ng-disabled="frmStepOne.$invalid">Next</button>
+									</fieldset>
+								</div>
+							</div>
+							<!-- Step One Content Ends -->
+						</div>
+						<!-- Step One Ends -->
+
+						<!-- Step Two Begins -->
+						<div class="panel panel-default" ng-class="{'disabled' : frmStepOne.$invalid}">
+							<!-- Heading Begins -->
+							<div id="stepTwo" class="panel-heading" role="tab">
+								<h4 class="panel-title">
+									Step 2 - Type of Job
+								</h4>
+							</div>
+							<!-- Heading Ends -->
+							<!-- Step Two Content Begins -->
+							<div id="collapseTwo" class="pannel-collapse collapse" role="tabpanel" aria-labelledby="stepTwo">
+								<div class="panel-body">
+									<fieldset ng-form="frmStepTwo">
+										<!-- Budget and Timescales -->
+										<div class="row">
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<div class="form-group" ng-class="{'has-error' : frmStepTwo.yourBudget.$invalid}">
+													<label for="yourBudget" class="control-label">Your Budget</label>
+													<div class="input-group">
+														<div class="input-group-addon">
+															<span class="glyphicon glyphicon-gbp"></span>
+														</div>
+														<input id="yourBudget" type="number" ng-model="quote.yourBudget" ng-pattern="numberReg" name="yourBudget" class="form-control" required>
+														<span class="input-group-addon">.00</span>
+													</div>
+													<div class="help-block" ng-messages="frmStepTwo.yourBudget.$error">
+														<div ng-message="invalid">Please enter numbers only</div>
+														<div ng-messages-include="templates/error-messages.html"></div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<div class="form-group">
+													<label for="timeScale" class="control-label">Timescale</label>
+													<input id="timeScale" name="timeScale" ng-model="quote.timeScale" type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+
+										<!-- Type of Job -->
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group" ng-class="{'has-error' : frmStepTwo.typeJob.$invalid || frmStepTwo.typeJob.$pristine}">
+													<label for="typeJob" class="control-label">Type of Job</label>
+													<select id="typeJob" name="typeJob" ng-model="quote.typeJob" class="form-control" required>
+														<option value="New Build">New Build</option>
+														<option value="Extension">Extension</option>
+														<option value="Loft Conversion">Loft Conversion</option>
+														<option value="Roofing">Roofing</option>
+														<option value="Carpentry">Carpentry</option>
+														<option value="Plastering">Plastering</option>
+														<option value="Electrics">Electrics</option>
+													</select>
+													<div class="help-block" ng-messages="frmStepTwo.typeJob.$error">
+														<div ng-messages-include="templates/error-messages.html"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Navigation Buttons -->
+										<button type="button" class="btn btn-primary pull-right" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo" data-parent="#accordion" ng-disabled="frmStepTwo.$invalid">Next</button>
+										<button type="button" class="btn btn-primary pull-left" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo" data-parent="#accordion" ng-disabled="frmStepOne.$invalid">Previous</button>
+									</fieldset>
+								</div>
+							</div>
+							<!-- Step Two Content Ends -->
+						</div>
+						<!-- Step Two Ends -->
+
+						<!-- Step Three Begins -->
+						<div class="panel panel-default" ng-class="{'disabled' : frmStepTwo.$invalid}">
+							<!-- Heading Begins -->
+							<div class="panel-heading" id="stepThree" role="tab">
+								<h4 class="panel-title">
+									Step 3 - About the Job
+								</h4>
+							</div>
+							<!-- Heading Ends -->
+
+							<!-- Step Three Content Begins -->
+							<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="stepThree">
+								<div class="panel-body">
+									<fieldset ng-form="frmStepThree">
+										<div ng-switch on="quote.typeJob">
+											<div ng-switch-when="New Build|Extension" ng-switch-when-separator="|">
+												<!-- How Many Stories & Planning Permission -->
+												<div class="row">
+													<div class="col-xs-12 col-sm-6 col-md-6">
+														<div class="form-group" ng-class="{'has-error' : frmStepThree.storyNumber.$invalid || frmStepThree.storyNumber.$pristine}">
+															<label for="" class="control-label">How Many Stories?</label>
+															<select name="storyNumber" id="storyNumber" ng-model="quote.storyNumber" class="form-control" required>
+																<option value="">Please select...</option>
+																<option value="One">One</option>
+																<option value="Two">Two</option>
+															</select>
+															<div class="help-block" ng-messages="frmStepThree.storyNumber.$error">
+																<div ng-messages-include="templates/error-messages.html"></div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-6 col-md-6">
+														<div class="form-group" ng-class="{'has-error' : frmStepThree.planningPermission.$invalid || frmStepThree.planningPermission.$pristine}">
+															<label for="planningPermission" class="control-label">Do you have planning permission?</label>
+															<select name="planningPermission" id="planningPermission" class="form-control" ng-model="quote.planningPermission" required>
+																<option value="">Please select...</option>
+																<option value="Yes">Yes</option>
+																<option value="No">No</option>
+																<option value="Provide">No, please provide</option>
+															</select>
+															<div class="help-block" ng-messages="frmStepThree.planningPermission.$error">
+																<div ng-messages-include="templates/error-messages.html"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<!-- Architectural Drawings & High or Low Spec -->
+												<div class="row">
+													<div class="col-xs-12 col-sm-6 col-md-6">
+														<div class="form-group" ng-class="{'has-error' : frmStepThree.archDrawings.$invalid || frmStepThree.archDrawings.$pristine}">
+															<label for="archDrawings" class="control-label">Do you have architectural drawings?</label>
+															<select name="archDrawings" id="archDrawings" class="form-control" ng-model="quote.archDrawings" required>
+																<option value="">Please select...</option>
+																<option value="Yes">Yes</option>
+																<option value="No">No</option>
+																<option value="Provide">No, please provide</option>
+															</select>
+															<div class="help-block" ng-messages="frmStepThree.archDrawings.$error">
+																<div ng-messages-include="templates/error-messages.html"></div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-6 col-md-6">
+														<div class="form-group" ng-class="{'has-error' : frmStepThree.highLowSpec.$invalid || frmStepThree.highLowSpec.$pristine}">
+															<label for="highLowSpec" class="control-label">High or Low Spec?</label>
+															<select name="highLowSpec" id="highLowSpec" class="form-control" ng-model="quote.highLowSpec" required>
+																<option value="">Please select...</option>
+																<option value="High">High Spec</option>
+																<option value="Low">Low Spec</option>
+															</select>
+															<div class="help-block" ng-messages="frmStepThree.highLowSpec.$error">
+																<div ng-messages-include="templates/error-messages.html"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<!-- Square metres -->
+												<div class="row">
+													<div class="col-xs-12 col-sm-6 col-md-6">
+														<div class="form-group" ng-class="{'has-error' : frmStepThree.metreSize.$invalid || frmStepThree.metreSize.$pristine}">
+															<label for="metreSize" class="control-label">How many m<sup>2</sup> is the {{ typeJob }}?</label>
+															<div class="input-group">
+																<input id="metreSize" type="number" ng-model="quote.metreSize" ng-pattern="numberReg" name="metreSize" class="form-control" ng-min="1" ng-max="100" required>
+																<span class="input-group-addon">m<sup>2</sup></span>
+															</div>
+															<div class="help-block" ng-messages="frmStepThree.metreSize.$error">
+																<div ng-message="min">Please enter a number between 1 and 100</div>
+																<div ng-message="max">Please enter a number between 1 and 100</div>
+																<div ng-messages-include="templates/error-messages.html"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div ng-switch-default>
+												<div class="row">
+													<div class="col-md-12">
+														<div class="alert alert-info">
+															<h4>{{ typeJob }}</h4>
+															<p>
+																For {{ typeJob }} enquiries, Craig will contact you to give you an accurate quote or to arrange a visit to your property to produce a quote.
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Navigation Buttons -->
+										<button type="submit" class="btn btn-primary pull-right" ng-disabled="frmStepThree.$invalid">Submit</button>
+										<button type="button" class="btn btn-primary pull-left" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseThree" data-parent="#accordion" ng-disabled="frmStepTwo.$invalid">Previous</button>
+									</fieldset>
+								</div>
+							</div>
+							<!-- Step Three Content Ends -->
+						</div>
+						<!-- Step Three Ends -->
+					</div>
+				</form>
+			</div>
+			<!-- Quote Calculator Ends -->
+
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<div id="finalQuote"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="modal fade" id="quote-modal" tabindex="-1" role="dialog" aria-labelledby="quote-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="quote-modal-header">Thank You for using our Calculator.</h4>
+            </div>
+            <div class="modal-body">
+                <div id="thankYouMessage">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

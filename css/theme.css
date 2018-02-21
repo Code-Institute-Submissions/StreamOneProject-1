@@ -40,6 +40,16 @@ p {
 	margin: 0 0 2rem;
 }
 
+
+/* Panel Disabled */
+.panel {
+	transition: all 0.3s ease-in-out;
+}
+.disabled { 
+	opacity: 0.3; 
+	transition: all 0.3s ease-in-out;
+}
+
 /* Navbar */
 .navbar { 
 	border: none;
@@ -96,6 +106,14 @@ p {
 	min-height: 500px;
 	width: 100%;
 	border: none;
+}
+
+/* Forms */
+label, .help-block {
+	font-size: 14px;
+}
+.help-block p {
+	margin: 0;
 }
 
 /* Button Overrides */

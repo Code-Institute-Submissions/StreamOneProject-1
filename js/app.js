@@ -1,5 +1,5 @@
 // begin the angular app CEdneyBuilders.
-angular.module('CEdneyBuilders', ['ngRoute', 'RouteControllers', 'ngMessages'])
+angular.module('CEdneyBuilders', ['ngRoute', 'RouteControllers', 'ngMessages', 'PostcodeLookup'])
 
 // create configurations for the app.
 .config(function($locationProvider, $routeProvider) {
