@@ -11,11 +11,12 @@
 				<form name="quoteCalculator" ng-submit="submitForm(quoteCalculator.$valid)" novalidate>
 					<div id="accordion" class="panel-group" aria-multiselectable="true">
 						<!-- Step One Begins -->
-						<div class="panel panel-default">
+						<div class="panel panel-default" ng-class="{'panel-success' : frmStepOne.$valid}">
 							<!-- Heading Begins -->
 							<div id="stepOne" class="panel-heading" role="tab">
 								<h4 class="panel-title">
 									Step 1 - Contact Details
+									<span class="glyphicon glyphicon-ok pull-right" ng-show="frmStepOne.$valid"></span>
 								</h4>
 							</div>
 							<!-- Heading Ends -->
@@ -30,12 +31,12 @@
 													<label for="title" class="control-label">Title</label>
 													<select id="title" name="title" id="title" ng-model="quote.title" class="form-control" required>
 														<option value="">Select...</option>
-														<option value="Mr.">Mr.</option>
-														<option value="Mrs.">Mrs.</option>
-														<option value="Ms.">Ms.</option>
-														<option value="Miss.">Miss.</option>
-														<option value="Prof.">Prof.</option>
-														<option value="Dr.">Dr.</option>
+														<option value="Mr.">Mr</option>
+														<option value="Mrs.">Mrs</option>
+														<option value="Ms.">Ms</option>
+														<option value="Miss.">Miss</option>
+														<option value="Prof.">Prof</option>
+														<option value="Dr.">Dr</option>
 													</select>
 													<div class="help-block" ng-messages="frmStepOne.title.$error">
 														<div ng-message="required">Required</div>
@@ -140,11 +141,12 @@
 						<!-- Step One Ends -->
 
 						<!-- Step Two Begins -->
-						<div class="panel panel-default" ng-class="{'disabled' : frmStepOne.$invalid}">
+						<div class="panel panel-default" ng-class="{'disabled' : frmStepOne.$invalid, 'panel-success' : frmStepTwo.$valid}">
 							<!-- Heading Begins -->
 							<div id="stepTwo" class="panel-heading" role="tab">
 								<h4 class="panel-title">
 									Step 2 - Type of Job
+									<span class="glyphicon glyphicon-ok pull-right" ng-show="frmStepTwo.$valid"></span>
 								</h4>
 							</div>
 							<!-- Heading Ends -->
@@ -152,7 +154,7 @@
 							<div id="collapseTwo" class="pannel-collapse collapse" role="tabpanel" aria-labelledby="stepTwo">
 								<div class="panel-body">
 									<fieldset ng-form="frmStepTwo">
-										<!-- Budget and Timescales -->
+										<!-- Budget and Start Date -->
 										<div class="row">
 											<div class="col-xs-12 col-sm-6 col-md-6">
 												<div class="form-group" ng-class="{'has-error' : frmStepTwo.yourBudget.$invalid}">
@@ -171,9 +173,13 @@
 												</div>
 											</div>
 											<div class="col-xs-12 col-sm-6 col-md-6">
-												<div class="form-group">
-													<label for="timeScale" class="control-label">Timescale</label>
-													<input id="timeScale" name="timeScale" ng-model="quote.timeScale" type="text" class="form-control">
+												<div class="form-group" ng-class="{'has-error' : frmStepTwo.startDate.$invalid}">
+													<label for="startDate" class="control-label">Start Date</label>
+													<input id="startDate" name="startDate" ng-model="quote.startDate" type="text" ng-pattern="dateReg" class="form-control">
+													<div class="help-block" ng-messages="frmStepTwo.startDate.$error">
+														<div ng-message="pattern">Please enter a date in dd/mm/yyyy format.</div>
+														<div ng-messages-include="templates/error-messages.html"></div>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -210,11 +216,12 @@
 						<!-- Step Two Ends -->
 
 						<!-- Step Three Begins -->
-						<div class="panel panel-default" ng-class="{'disabled' : frmStepTwo.$invalid}">
+						<div class="panel panel-default" ng-class="{'disabled' : frmStepTwo.$invalid, 'panel-success' : frmStepThree.$valid && frmStepTwo.$valid}">
 							<!-- Heading Begins -->
 							<div class="panel-heading" id="stepThree" role="tab">
 								<h4 class="panel-title">
 									Step 3 - About the Job
+									<span class="glyphicon glyphicon-ok pull-right" ng-show="frmStepThree.$valid && frmStepTwo.$valid"></span>
 								</h4>
 							</div>
 							<!-- Heading Ends -->
@@ -291,7 +298,7 @@
 												<div class="row">
 													<div class="col-xs-12 col-sm-6 col-md-6">
 														<div class="form-group" ng-class="{'has-error' : frmStepThree.metreSize.$invalid || frmStepThree.metreSize.$pristine}">
-															<label for="metreSize" class="control-label">How many m<sup>2</sup> is the {{ typeJob }}?</label>
+															<label for="metreSize" class="control-label">How many m<sup>2</sup> is the {{ quote.typeJob }}?</label>
 															<div class="input-group">
 																<input id="metreSize" type="number" ng-model="quote.metreSize" ng-pattern="numberReg" name="metreSize" class="form-control" ng-min="1" ng-max="100" required>
 																<span class="input-group-addon">m<sup>2</sup></span>
@@ -309,9 +316,9 @@
 												<div class="row">
 													<div class="col-md-12">
 														<div class="alert alert-info">
-															<h4>{{ typeJob }}</h4>
+															<h4>{{ quote.typeJob }}</h4>
 															<p>
-																For {{ typeJob }} enquiries, Craig will contact you to give you an accurate quote or to arrange a visit to your property to produce a quote.
+																For {{ quote.typeJob }} enquiries, Craig will contact you to give you an accurate quote or to arrange a visit to your property to produce a quote.
 															</p>
 														</div>
 													</div>
@@ -334,12 +341,13 @@
 			<!-- Quote Calculator Ends -->
 
 			<div class="col-xs-12 col-sm-4 col-md-4">
-				<div id="finalQuote"></div>
+				
 			</div>
 		</div>
 	</div>
 </section>
 
+<!-- Modal Form to display quote -->
 <div class="modal fade" id="quote-modal" tabindex="-1" role="dialog" aria-labelledby="quote-modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -358,3 +366,4 @@
         </div>
     </div>
 </div>
+<!-- Modal ends -->
