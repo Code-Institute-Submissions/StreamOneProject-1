@@ -24,9 +24,10 @@ The website will contain the following pages:
 * HTML5
 * CSS3
 	* Bootstrap 3.3.7
-* Google Fonts
+* Fonts
 	* Open Sans - [https://fonts.google.com/specimen/Open+Sans](https://fonts.google.com/specimen/Open+Sans)
 	* Righteous - [https://fonts.google.com/specimen/Righteous](https://fonts.google.com/specimen/Righteous)
+	* Font Awesome - [https://fontawesome.com](https://fontawesome.com)
 * jQuery 3.3.1
 * AngularJS 1.6.5
 	* Angular Route 1.6.8
