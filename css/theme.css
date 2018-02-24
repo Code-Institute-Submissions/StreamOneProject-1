@@ -108,6 +108,41 @@ p {
 	border: none;
 }
 
+/* Social Media Links */
+ul.social-media {
+	list-style: none;
+}
+ul.social-media > li {
+	float: left;
+}
+ul.social-media > li > a {
+	height: 40px;
+	width: 40px;
+	display: block;
+	text-align: center;
+	color: #fff;
+	font-size: 20px;
+	line-height: 40px;
+	transition: all 0.3s ease-in-out;
+}
+a.facebook {
+	background-color: #3b5998;
+}
+a.twitter {
+	background-color: #1da1f2;
+}
+a.linkedin {
+	background-color: #0077b5;
+}
+a.youtube {
+	background-color: #de332c;
+}
+a.facebook:hover, a.twitter:hover, a.linkedin:hover, a.youtube:hover {
+	background-color: #333; 
+	transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+}
+
 /* Forms */
 label, .help-block {
 	font-size: 14px;
