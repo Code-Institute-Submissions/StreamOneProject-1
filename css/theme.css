@@ -111,6 +111,7 @@ p {
 /* Social Media Links */
 ul.social-media {
 	list-style: none;
+	padding-left: 0;
 }
 ul.social-media > li {
 	float: left;
@@ -259,6 +260,55 @@ label, .help-block {
 	padding: 20px;
 }
 
+/* Services */
+.service-row {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.service-text {
+	background-color: rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	border-radius: 5px;
+	color: #fff;
+}
+.service-text p:last-child {
+	margin-bottom: 0;
+}
+.extension-bkg {
+	background-image: url(/images/portfolio/carousel-1/slide-00.jpg);
+	background-position: top center;
+}
+.loft-conversions-bkg {
+	background-image: url(/images/services/loft-conversions-bkg.jpg);
+	background-position: top center;
+}
+.general-building-bkg {
+	background-image: url(/images/services/general-building-services-bkg.jpg);
+	background-position: top center;
+}
+.brickwork-bkg { 
+	background-image: url(/images/services/brickwork-bkg.jpg);
+	background-position: top center;
+}
+.windows-bkg { 
+	background-image: url(/images/services/windows-bkg.jpg);
+	background-position: top center;
+}
+.maintenance-bkg { 
+	background-image: url(/images/services/property-maintenance-bkg.jpg);
+	background-position: top center;
+}
+.renovations-bkg { 
+	background-image: url(/images/services/property-renovations-bkg.jpg);
+	background-position: top center;
+}
+.new-builds-bkg { 
+	background-image: url(/images/services/new-builds-bkg.jpg);
+	background-position: top center;
+}
+
 /* Spacers */
 .spacer-50px {
 	margin-top: 50px;
@@ -288,6 +338,10 @@ footer a { color: #777; }
 Mobile Device CSS Rules
  */
 @media only screen and (max-width: 767px) {
+	h1, h2, h3, h4, h5, h6 {
+		text-align: center;
+	}
+
 	/* Nav bar */
 	.navbar-default .navbar-brand { 
 		font-weight: 700;
@@ -299,6 +353,12 @@ Mobile Device CSS Rules
 	/* Footer */
 	.footer-column {
 		margin-bottom: 20px;
+		text-align: center;
+	}
+	ul.social-media > li {
+		margin: 0;
+		float: none;
+		display: inline-block;
 	}
 	
 	/* Home Page */
@@ -321,6 +381,13 @@ Mobile Device CSS Rules
 	.panel-contact p, .panel-portfolio p, .panel-quote p {
 		padding: 20px;
 		color: #fff;
+		margin: 0 0 0 0;
+	}
+
+	/* Services */
+	.row-inner { 
+		margin-right: 15px; 
+		margin-left: 15px;
 	}
 }
 
