@@ -176,6 +176,7 @@ label, .help-block {
 	width: 50px;
 	line-height: 50px;
 	text-align: center;
+	z-index: 999;
 }
 #toTop > .glyphicon {
 	font-size: 25px;
@@ -184,7 +185,7 @@ label, .help-block {
 /* Character Counter */
 .char-number { font-size: 0.6rem; text-align: right; }
 
-/* Texture Backgrounds */
+/* Coloured/Texture Backgrounds */
 .brickwall-blue {
 	background-image: url(/images/brickwall-blue.png);
 	background-repeat: repeat;
@@ -196,6 +197,18 @@ label, .help-block {
 .brickwall-orange {
 	background-image: url(/images/brickwall-orange.png);
 	background-repeat: repeat;
+}
+.blue-bkg {
+	background-color: #065584;
+}
+.green-bkg {
+	background-color: #009147;
+}
+.orange-bkg {
+	background-color: #CF7200;
+}
+.grey-bkg {
+	background-color: #efefef;
 }
 
 /* Home Page */
@@ -309,9 +322,33 @@ label, .help-block {
 	background-position: top center;
 }
 
+/* Contact Us */
+.icon-box {
+	display: block;
+	float: left;
+	border-radius: 50%;
+	color: #fff;
+	text-align: center;
+	margin-right: 10px;
+}
+.icon-box > div {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 5px;
+	width: 100px;
+	height: 100px;
+}
+.contact-detail {
+	display: block;
+	float: left;
+}
+
 /* Spacers */
 .spacer-50px {
 	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.spacer-50px-bottom {
 	margin-bottom: 50px;
 }
 
@@ -388,6 +425,20 @@ Mobile Device CSS Rules
 	.row-inner { 
 		margin-right: 15px; 
 		margin-left: 15px;
+	}
+
+	/* Contact Us */
+	.icon-box > div {
+		display: table-cell;
+		vertical-align: middle;
+		padding: 5px;
+		width: 75px;
+		height: 75px;
+	}
+
+	/* Spacers */
+	.spacer-50px-xs {
+		margin-top: 50px;
 	}
 }
 
