@@ -49,4 +49,4 @@ The website was tested on various devices (desktop, iPhone and iPad) to check la
 
 ## Deployment
 
-The finished project will be deployed on the clients website [http://www.cedneybuilders.com](http://www.cedneybuilders.com) using FTP.
+The finished project will be deployed on GitHub Pages [https://kilik2021.github.io/StreamOneProject](https://kilik2021.github.io/StreamOneProject).
