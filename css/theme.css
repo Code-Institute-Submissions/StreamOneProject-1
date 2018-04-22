@@ -187,15 +187,15 @@ label, .help-block {
 
 /* Coloured/Texture Backgrounds */
 .brickwall-blue {
-	background-image: url(images/brickwall-blue.png);
+	background-image: url(../images/brickwall-blue.png);
 	background-repeat: repeat;
 }
 .brickwall-green {
-	background-image: url(images/brickwall-green.png);
+	background-image: url(../images/brickwall-green.png);
 	background-repeat: repeat;
 }
 .brickwall-orange {
-	background-image: url(images/brickwall-orange.png);
+	background-image: url(../images/brickwall-orange.png);
 	background-repeat: repeat;
 }
 .blue-bkg {
@@ -213,7 +213,7 @@ label, .help-block {
 
 /* Home Page */
 .home-bkg {
-	background-image: url(images/home/welcome-to-c-edney-builders.jpg);
+	background-image: url(../images/home/welcome-to-c-edney-builders.jpg);
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -290,35 +290,35 @@ label, .help-block {
 	margin-bottom: 0;
 }
 .extension-bkg {
-	background-image: url(images/portfolio/carousel-1/slide-00.jpg);
+	background-image: url(../images/portfolio/carousel-1/slide-00.jpg);
 	background-position: top center;
 }
 .loft-conversions-bkg {
-	background-image: url(images/services/loft-conversions-bkg.jpg);
+	background-image: url(../images/services/loft-conversions-bkg.jpg);
 	background-position: top center;
 }
 .general-building-bkg {
-	background-image: url(images/services/general-building-services-bkg.jpg);
+	background-image: url(../images/services/general-building-services-bkg.jpg);
 	background-position: top center;
 }
 .brickwork-bkg { 
-	background-image: url(images/services/brickwork-bkg.jpg);
+	background-image: url(../images/services/brickwork-bkg.jpg);
 	background-position: top center;
 }
 .windows-bkg { 
-	background-image: url(images/services/windows-bkg.jpg);
+	background-image: url(../images/services/windows-bkg.jpg);
 	background-position: top center;
 }
 .maintenance-bkg { 
-	background-image: url(images/services/property-maintenance-bkg.jpg);
+	background-image: url(../images/services/property-maintenance-bkg.jpg);
 	background-position: top center;
 }
 .renovations-bkg { 
-	background-image: url(images/services/property-renovations-bkg.jpg);
+	background-image: url(../images/services/property-renovations-bkg.jpg);
 	background-position: top center;
 }
 .new-builds-bkg { 
-	background-image: url(images/services/new-builds-bkg.jpg);
+	background-image: url(../images/services/new-builds-bkg.jpg);
 	background-position: top center;
 }
 
